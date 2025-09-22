@@ -43,8 +43,7 @@ const HeroSection = () => {
 
         {/* Main Heading */}
         <h1 className="text-5xl md:text-7xl lg:text-8xl font-playfair font-bold text-cream mb-6 animate-fade-in">
-          <span className="block">Tejaswani</span>
-          <span className="block text-cinematic animate-float">Sriramoju</span>
+          <span className="block text-cinematic animate-float">Tejaswani</span>
         </h1>
 
         {/* Subtitle */}

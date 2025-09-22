@@ -113,18 +113,18 @@ const Contact = () => {
       </section>
 
       <div className="container mx-auto px-6 pb-16">
-        <div className="grid lg:grid-cols-3 gap-12">
+        <div className="max-w-4xl mx-auto">
           {/* Contact Information */}
-          <div className="lg:col-span-1 space-y-8">
+          <div className="space-y-8">
             <div>
-              <h2 className="text-3xl font-playfair font-bold text-foreground mb-6">
+              <h2 className="text-3xl font-playfair font-bold text-foreground mb-6 text-center">
                 Contact Information
               </h2>
-              <div className="space-y-6">
+              <div className="grid md:grid-cols-2 gap-6">
                 {contactInfo.map((info, index) => (
                   <div 
                     key={info.label}
-                    className="flex items-start gap-4 p-4 bg-card rounded-lg shadow-subtle hover:shadow-elegant transition-all duration-300 animate-fade-in"
+                    className="flex items-start gap-4 p-6 bg-card rounded-lg shadow-subtle hover:shadow-elegant transition-all duration-300 animate-fade-in"
                     style={{ animationDelay: `${index * 0.1}s` }}
                   >
                     <div className="p-3 bg-gold/10 rounded-lg">
@@ -151,127 +151,30 @@ const Contact = () => {
             </div>
 
             {/* Availability Note */}
-            <div className="bg-gradient-gold/10 rounded-lg p-6 border border-gold/20">
-              <h3 className="font-playfair font-semibold text-foreground mb-3">Availability</h3>
-              <ul className="space-y-2 text-muted-foreground font-inter">
-                <li className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-gold rounded-full"></div>
-                  Open for outstation shoots
-                </li>
-                <li className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-gold rounded-full"></div>
-                  Flexible with timing
-                </li>
-                <li className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-gold rounded-full"></div>
-                  Available for international projects
-                </li>
-                <li className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-gold rounded-full"></div>
-                  Quick response guaranteed
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          {/* Contact Form */}
-          <div className="lg:col-span-2">
-            <div className="bg-card rounded-lg p-8 shadow-elegant">
-              <h2 className="text-3xl font-playfair font-bold text-foreground mb-6">
-                Send a Message
-              </h2>
-              
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div>
-                    <label htmlFor="name" className="block text-sm font-inter font-medium text-foreground mb-2">
-                      Full Name *
-                    </label>
-                    <Input
-                      id="name"
-                      name="name"
-                      type="text"
-                      required
-                      value={formData.name}
-                      onChange={handleInputChange}
-                      className="w-full"
-                      placeholder="Your full name"
-                    />
+            <div className="bg-gradient-gold/10 rounded-lg p-8 border border-gold/20">
+              <h3 className="font-playfair font-semibold text-foreground mb-6 text-center text-xl">Availability</h3>
+              <div className="grid md:grid-cols-2 gap-6">
+                <div className="space-y-3">
+                  <div className="flex items-center gap-3">
+                    <div className="w-2 h-2 bg-gold rounded-full"></div>
+                    <span className="text-muted-foreground font-inter">Open for outstation shoots</span>
                   </div>
-                  
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-inter font-medium text-foreground mb-2">
-                      Email Address *
-                    </label>
-                    <Input
-                      id="email"
-                      name="email"
-                      type="email"
-                      required
-                      value={formData.email}
-                      onChange={handleInputChange}
-                      className="w-full"
-                      placeholder="your.email@example.com"
-                    />
+                  <div className="flex items-center gap-3">
+                    <div className="w-2 h-2 bg-gold rounded-full"></div>
+                    <span className="text-muted-foreground font-inter">Flexible with timing</span>
                   </div>
                 </div>
-
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div>
-                    <label htmlFor="phone" className="block text-sm font-inter font-medium text-foreground mb-2">
-                      Phone Number
-                    </label>
-                    <Input
-                      id="phone"
-                      name="phone"
-                      type="tel"
-                      value={formData.phone}
-                      onChange={handleInputChange}
-                      className="w-full"
-                      placeholder="+91 98765 43210"
-                    />
+                <div className="space-y-3">
+                  <div className="flex items-center gap-3">
+                    <div className="w-2 h-2 bg-gold rounded-full"></div>
+                    <span className="text-muted-foreground font-inter">Available for international projects</span>
                   </div>
-                  
-                  <div>
-                    <label htmlFor="projectType" className="block text-sm font-inter font-medium text-foreground mb-2">
-                      Project Type
-                    </label>
-                    <select
-                      id="projectType"
-                      name="projectType"
-                      value={formData.projectType}
-                      onChange={handleInputChange}
-                      className="w-full px-3 py-2 bg-input border border-border rounded-md text-foreground font-inter focus:ring-2 focus:ring-ring focus:border-transparent"
-                    >
-                      <option value="">Select project type</option>
-                      {projectTypes.map((type) => (
-                        <option key={type} value={type}>{type}</option>
-                      ))}
-                    </select>
+                  <div className="flex items-center gap-3">
+                    <div className="w-2 h-2 bg-gold rounded-full"></div>
+                    <span className="text-muted-foreground font-inter">Quick response guaranteed</span>
                   </div>
                 </div>
-
-                <div>
-                  <label htmlFor="message" className="block text-sm font-inter font-medium text-foreground mb-2">
-                    Message *
-                  </label>
-                  <Textarea
-                    id="message"
-                    name="message"
-                    required
-                    rows={6}
-                    value={formData.message}
-                    onChange={handleInputChange}
-                    className="w-full"
-                    placeholder="Tell me about your project, requirements, timeline, and any other details..."
-                  />
-                </div>
-
-                <Button type="submit" className="btn-hero w-full group">
-                  <Send className="w-5 h-5 mr-2 group-hover:translate-x-1 transition-transform" />
-                  Send Message
-                </Button>
-              </form>
+              </div>
             </div>
           </div>
         </div>
